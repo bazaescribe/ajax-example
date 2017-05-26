@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <body>
 
-<div id="demo">
-<h1>The XMLHttpRequest Object</h1>
-<button type="button" onclick="loadDoc()">Change Content</button>
-</div>
+  <div id="demo">
+    <h1>Desde aquí se realizará la petición XHTTP</h1>
+    <button type="button" onclick="loadDoc()">Presiona para cambiar el contenido</button>
+  </div>
 
-<script>
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML =
-      this.responseText;
+  <script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML =
+          this.responseText;
+        }
+      };
+      xhttp.open("GET", "ajax_info.txt", true);
+      xhttp.send();
     }
-  };
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
-}
-</script>
+  </script>
 
-</body>
+  </body>
 </html>
